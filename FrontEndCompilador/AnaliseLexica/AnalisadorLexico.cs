@@ -268,7 +268,7 @@ namespace FrontEndCompilador.AnaliseLexica
                         break;
                     case 38:
                         _tratarLookahead = true;
-                        sucessoConversao = float.TryParse(lexema, out float valorFloat);
+                        sucessoConversao = float.TryParse(lexema.Replace('.', ','), out float valorFloat);
                         if (!sucessoConversao)
                         {
                             estado = -1;
@@ -329,7 +329,6 @@ namespace FrontEndCompilador.AnaliseLexica
                         return null;
                 }
             }
-            throw new NotImplementedException();
         }
 
         private char ObtemChar()
