@@ -30,15 +30,17 @@ namespace FrontEndCompilador
         private List<Simbolo> Tabela = new();
         private uint ProximoId = 1;
 
-        public void InsereSimbolo(EnumToken tipoToken, string lexema, object? valor, string? tipo)
+        public Simbolo InsereSimbolo(EnumToken tipoToken, string lexema, object? valor = null, string? tipo = null)
         {
-            Tabela.Add(new Simbolo(tipoToken, lexema, valor, tipo, ProximoId));
+            Simbolo simbolo = new Simbolo(tipoToken, lexema, valor, tipo, ProximoId);
             ProximoId++;
+            Tabela.Add(simbolo);
+            return simbolo;
         }
 
         public Simbolo? ConsultaSimbolo(EnumToken tipoToken, string? lexema, object? valor = null)
         {
-            return Tabela.FirstOrDefault(simbolo => simbolo.TipoToken == tipoToken && (simbolo.Lexema == lexema || simbolo.Valor == valor));
+            return Tabela.FirstOrDefault(simbolo => simbolo.TipoToken == tipoToken && (simbolo.Lexema == lexema || (simbolo.Valor == valor && valor != null)));
         }
 
         public Simbolo ConsultaSimbolo(uint id)
