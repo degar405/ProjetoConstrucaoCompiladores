@@ -1,38 +1,10 @@
 ﻿using FrontEndCompilador;
 using FrontEndCompilador.AnaliseLexica;
+using FrontEndCompilador.AnaliseSintatica;
 using FrontEndCompilador.Enumeradores;
 
-TratamentoDeErro tratamentoDeErro = new();
-TabelaDeSimbolos tabelaDeSimbolos = new();
+var tabelaProducoes = new TabelaDeProducoes();
 
-Console.WriteLine("Forneça o caminho do código-fonte.");
-string caminhoCodigoFonte = Console.ReadLine() ?? string.Empty;
-AnalisadorLexico analisadorLexico = new(tabelaDeSimbolos, tratamentoDeErro, caminhoCodigoFonte);
+var teste = tabelaProducoes.ObterProducao(2);
 
-Console.WriteLine("");
-Console.WriteLine("Início da execução do programa.");
-
-while (true)
-{
-    Token? token = analisadorLexico.ObtemProximoToken();
-    if (token == null)
-    {
-        Console.WriteLine("Análise léxica finalizada.");
-        break;
-    }
-
-    List<EnumToken> tokensTabelaSimbolos = new() { EnumToken.Identificador, EnumToken.ConstanteInt, EnumToken.ConstanteFloat, EnumToken.ConstanteChar };
-    string complementoAtributo = string.Empty;
-
-    if (tokensTabelaSimbolos.Contains(token.TipoToken))
-        complementoAtributo = $" - ID: {(uint)(token.Atributo ?? 0)}";
-
-    if (token.TipoToken == EnumToken.OperadorRelacional)
-        complementoAtributo = $" - {(string)(token.Atributo ?? string.Empty)}";
-    Console.WriteLine($"Token devolvido na iteração: { token.TipoToken }{ complementoAtributo }.");
-}
-
-Console.WriteLine();
-Console.WriteLine("Tabela de Símbolos:");
-
-tabelaDeSimbolos.ImprimeTabela();
+var x = 10;
