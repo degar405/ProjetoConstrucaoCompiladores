@@ -8,8 +8,8 @@ namespace FrontEndCompilador.AnaliseSintatica
 
         public TabelaDeProducoes()
         {
-            producoes = new List<Producao>()
-            {
+            producoes =
+            [
                 new(1, [EnumSimbolosGramatica.InicioCodigo, EnumSimbolosGramatica.Bloco]),
                 new(2, [EnumSimbolosGramatica.Programa, EnumSimbolosGramatica.Identificador, EnumSimbolosGramatica.AbreParenteses, EnumSimbolosGramatica.FechaParenteses]),
                 new(3, [EnumSimbolosGramatica.AbreBloco, EnumSimbolosGramatica.DeclaracaoVariavel, EnumSimbolosGramatica.SequenciaComandos, EnumSimbolosGramatica.FechaBloco]),
@@ -57,7 +57,7 @@ namespace FrontEndCompilador.AnaliseSintatica
                 new(45, [EnumSimbolosGramatica.ConstanteInt]),
                 new(46, [EnumSimbolosGramatica.ConstanteChar]),
                 new(47, [EnumSimbolosGramatica.ConstanteFloat]),
-            };
+            ];
         }
 
         public List<EnumSimbolosGramatica>? ObterProducao(int idProducao)
