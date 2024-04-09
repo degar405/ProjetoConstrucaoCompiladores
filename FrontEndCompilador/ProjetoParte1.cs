@@ -10,6 +10,7 @@ namespace FrontEndCompilador
             TratamentoDeErro tratamentoDeErro = new();
             TabelaDeSimbolos tabelaDeSimbolos = new();
 
+            Console.WriteLine("Análise Léxica.");
             Console.WriteLine("Forneça o caminho do código-fonte.");
             string caminhoCodigoFonte = Console.ReadLine() ?? string.Empty;
             AnalisadorLexico analisadorLexico = new(tabelaDeSimbolos, tratamentoDeErro, caminhoCodigoFonte);
