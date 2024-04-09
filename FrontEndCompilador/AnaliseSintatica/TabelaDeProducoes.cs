@@ -28,7 +28,7 @@ namespace FrontEndCompilador.AnaliseSintatica
                 new(16, [EnumSimbolosGramatica.ComandoSe]),
                 new(17, [EnumSimbolosGramatica.Enquanto, EnumSimbolosGramatica.Condicao, EnumSimbolosGramatica.Faca, EnumSimbolosGramatica.ComandoBloco]),
                 new(18, [EnumSimbolosGramatica.Repita, EnumSimbolosGramatica.ComandoBloco, EnumSimbolosGramatica.Ate, EnumSimbolosGramatica.Condicao]),
-                new(19, [EnumSimbolosGramatica.Identificador, EnumSimbolosGramatica.AtribuicaoValor, EnumSimbolosGramatica.Expressao]),
+                new(19, [EnumSimbolosGramatica.Identificador, EnumSimbolosGramatica.AtribuicaoValor, EnumSimbolosGramatica.Expressao, EnumSimbolosGramatica.PontoVirgula]),
                 new(20, [EnumSimbolosGramatica.Se, EnumSimbolosGramatica.Condicao, EnumSimbolosGramatica.Entao, EnumSimbolosGramatica.ComandoBloco, EnumSimbolosGramatica.ComandoSenao]),
                 new(21, [EnumSimbolosGramatica.Senao, EnumSimbolosGramatica.ComandoBloco]),
                 new(22, []),
