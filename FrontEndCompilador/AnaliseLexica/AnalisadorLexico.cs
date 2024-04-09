@@ -331,6 +331,8 @@ namespace FrontEndCompilador.AnaliseLexica
             }
         }
 
+        public int ObterLinhaAtual() => _linha;
+
         private char ObtemChar()
         {
             if (_tratarLookahead)

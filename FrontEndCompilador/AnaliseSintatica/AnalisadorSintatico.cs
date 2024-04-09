@@ -37,7 +37,7 @@ namespace FrontEndCompilador.AnaliseSintatica
             {
                 if (proximoToken == null && !tratamentoDeErro.ExisteErro) // $
                 {
-                    tratamentoDeErro.AcusarErro("Erro sintático.");
+                    tratamentoDeErro.AcusarErro($"Foi identificado erro sintático. Referência: linha { analisadorLexico.ObterLinhaAtual() }.");
                     return false;
                 }
                 if (proximoToken == null && tratamentoDeErro.ExisteErro) // erro léxico
@@ -48,7 +48,7 @@ namespace FrontEndCompilador.AnaliseSintatica
                 var simboloProximoToken = proximoToken?.ObterSimboloDaGramaticaEquivalente();
                 if (simboloProximoToken == null)
                 {
-                    tratamentoDeErro.AcusarErro("Erro sistêmico.");
+                    tratamentoDeErro.AcusarErro("Ocorreu erro sistêmico ao analisar o arquivo. Referência: linha {analisadorLexico.ObterLinhaAtual()}.");
                     return false;
                 }
 
@@ -57,7 +57,7 @@ namespace FrontEndCompilador.AnaliseSintatica
                 {
                     if (simboloProximoToken != topo)
                     {
-                        tratamentoDeErro.AcusarErro("Erro sintático.");
+                        tratamentoDeErro.AcusarErro($"Foi identificado erro sintático. Referência: linha { analisadorLexico.ObterLinhaAtual() }.");
                         return false;
                     }
 
@@ -71,7 +71,7 @@ namespace FrontEndCompilador.AnaliseSintatica
 
                     if (producao == null)
                     {
-                        tratamentoDeErro.AcusarErro("Erro sintático.");
+                        tratamentoDeErro.AcusarErro($"Foi identificado erro sintático. Referência: linha {analisadorLexico.ObterLinhaAtual()}.");
                         return false;
                     }
 
@@ -80,7 +80,11 @@ namespace FrontEndCompilador.AnaliseSintatica
                 }
             }
 
-            // verificar se string acabou
+            if (proximoToken != null)
+            {
+                tratamentoDeErro.AcusarErro($"Foi identificado erro sintático. Referência: linha {analisadorLexico.ObterLinhaAtual()}.");
+                return false;
+            }
 
             codigoFonteValido = true;
             return true;
