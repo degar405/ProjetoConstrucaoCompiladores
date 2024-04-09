@@ -107,7 +107,7 @@ namespace FrontEndCompilador.AnaliseSintatica
                 new(EnumSimbolosGramatica.Operando, EnumSimbolosGramatica.ConstanteChar, 44),
                 new(EnumSimbolosGramatica.Constante, EnumSimbolosGramatica.ConstanteInt, 45),
                 new(EnumSimbolosGramatica.Constante, EnumSimbolosGramatica.ConstanteChar, 46),
-                new(EnumSimbolosGramatica.Constante, EnumSimbolosGramatica.ConstanteInt, 47),
+                new(EnumSimbolosGramatica.Constante, EnumSimbolosGramatica.ConstanteFloat, 47)
             ];
         }
 

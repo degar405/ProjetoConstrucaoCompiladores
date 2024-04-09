@@ -3,13 +3,12 @@ using FrontEndCompilador.AnaliseLexica;
 using FrontEndCompilador.AnaliseSintatica;
 using FrontEndCompilador.Enumeradores;
 
-var tabelaProducoes = new TabelaDeProducoes();
-var tabelaAnalise = new TabelaDeAnalisePreditiva();
 
-var t = tabelaAnalise.ObterIdProducao(EnumSimbolosGramatica.CodigoPrograma, EnumSimbolosGramatica.Programa);
-var teste = tabelaProducoes.ObterProducao(t ?? 0);
 
-var t2 = tabelaAnalise.ObterIdProducao(EnumSimbolosGramatica.Constante, EnumSimbolosGramatica.ConstanteFloat);
-var teste2 = tabelaProducoes.ObterProducao(t2 ?? 0);
+Console.WriteLine("Forneça o caminho do código-fonte.");
+string caminhoCodigoFonte = Console.ReadLine() ?? string.Empty;
+AnalisadorSintatico analisadorSintatico = new(caminhoCodigoFonte);
+analisadorSintatico.AnalisarCodigoFonte();
 
-var x = 10;
+Console.WriteLine("");
+Console.WriteLine("Início da execução do programa.");
